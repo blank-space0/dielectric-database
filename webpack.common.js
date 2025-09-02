@@ -3,19 +3,21 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  entry: "./src/index.js",
+  entry: "./src/index.jsx",                    
   output: {
-    filename: "main.js",
     path: path.resolve(__dirname, "dist"),
+    filename: "[name].[contenthash].js",       
     clean: true,
+    publicPath: "/"                            
   },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: "./src/template.html",
-    }),
-  ],
   module: {
     rules: [
+      // JSX / TSX via Babel
+      {
+        test: /\.[jt]sx?$/,
+        exclude: /node_modules/,
+        use: "babel-loader"
+      },
       {
         test: /\.css$/i,
         use: ["style-loader", "css-loader"],
@@ -34,4 +36,12 @@ module.exports = {
       },
     ],
   },
+  resolve: {
+    extensions: [".js", ".jsx", ".ts", ".tsx", ".json"]
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: "./src/template.html",      
+    }),
+  ],
 };
