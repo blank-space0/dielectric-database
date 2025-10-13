@@ -156,6 +156,146 @@ thead {
   text-align: left;
 }
 
+/* Unified search styles - NEW */
+.unified-search {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-top: 20px;
+  max-width: 600px;
+  width: 100%;
+}
+
+.search-input-group {
+  display: flex;
+  flex: 1;
+  align-items: stretch;
+  border-radius: 30px;
+  overflow: hidden;
+  border: 2px solid #e1e5e9;
+  background: white;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.search-input-group:focus-within {
+  border-color: #007BFF;
+  box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.1);
+}
+
+.search-input-main {
+  width: 100%;
+  padding: 16px 20px 16px 100px;
+  border: 2px solid #e1e5e9;
+  border-radius: 30px;
+  font-size: 18px;
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  background: white;
+}
+
+.search-input-main:focus {
+  border-color: #007BFF;
+  box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.1);
+}
+
+.search-input-main::placeholder {
+  color: #6c757d;
+}
+
+.search-mode-tag {
+  position: absolute;
+  left: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 6px 12px;
+  border: 1px solid #dee2e6;
+  border-radius: 18px;
+  font-size: 13px;
+  font-weight: 500;
+  background-color: #f8f9fa;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.2s ease;
+  min-width: 70px;
+  height: 32px;
+  box-sizing: border-box;
+}
+
+.search-mode-tag:hover {
+  background-color: #e9ecef;
+  border-color: #adb5bd;
+}
+
+.search-mode-tag:focus {
+  background-color: #ffffff;
+  border-color: #007BFF;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.1);
+}
+
+.search-submit-btn {
+  padding: 0 24px;
+  height: 44px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+  white-space: nowrap;
+  min-width: 80px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-submit-btn:hover {
+  background-color: #0056b3;
+  transform: translateY(-1px);
+}
+
+.search-submit-btn:active {
+  transform: translateY(0);
+}
+
+/* Advanced search improvements */
+.toggle-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.toggle-label {
+  font-size: 14px;
+  color: #6c757d;
+  font-weight: 500;
+  user-select: none;
+  cursor: pointer;
+}
+
+.toggle-label:hover {
+  color: #495057;
+}
+
+/* Legacy unified search styles for backward compatibility */
+.unified-search-btn {
+  padding: 12px 24px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  white-space: nowrap;
+}
+
+.unified-search-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Legacy input-grid for backward compatibility */
 .input-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -172,11 +312,109 @@ input[type="text"], select {
   box-sizing: border-box;
 }
 
+/* Advanced search styling improvements */
+.advanced-input, .advanced-select {
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.advanced-input:focus, .advanced-select:focus {
+  border-color: #007BFF;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+  outline: none;
+}
+
+.freq-input {
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.freq-input:focus {
+  border-color: #007BFF;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+  outline: none;
+}
+
+.freq-unit-select {
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.freq-unit-select:focus {
+  border-color: #007BFF;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+  outline: none;
+}
+
 .advanced-fields {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 20px;
-  margin-top: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.advanced-fields label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 600;
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.advanced-fields .advanced-input,
+.advanced-fields .advanced-select {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid #e1e5e9;
+  border-radius: 12px;
+  font-size: 15px;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  background: white;
+  box-sizing: border-box;
+}
+
+.advanced-fields .advanced-input:focus,
+.advanced-fields .advanced-select:focus {
+  border-color: #007BFF;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+
+.advanced-fields .freq-inputs {
+  display: flex;
+  gap: 12px;
+  margin-top: 0;
+}
+
+.advanced-fields .freq-input {
+  flex: 1;
+  padding: 12px 16px;
+  border: 2px solid #e1e5e9;
+  border-radius: 12px;
+  font-size: 15px;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  box-sizing: border-box;
+}
+
+.advanced-fields .freq-input:focus {
+  border-color: #007BFF;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+
+.advanced-fields .freq-unit-select {
+  min-width: 80px;
+  padding: 12px 16px;
+  border: 2px solid #e1e5e9;
+  border-radius: 12px;
+  font-size: 15px;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  background: white;
+  cursor: pointer;
+}
+
+.advanced-fields .freq-unit-select:focus {
+  border-color: #007BFF;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
 }
 
 label {
@@ -317,4 +555,275 @@ label {
   background-color: #006ddc;
 }
 
+/* === ENHANCED UI INTERACTIVITY === */
 
+/* Rotating dropdown arrows */
+.select-with-arrow {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.select-with-arrow::after {
+  content: '⌃';
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%) rotate(0deg);
+  pointer-events: none;
+  transition: transform 0.25s ease, color 0.25s ease;
+  font-size: 14px;
+  color: #666;
+  z-index: 1;
+}
+
+.select-with-arrow:focus-within::after {
+  transform: translateY(-50%) rotate(180deg);
+  color: #007BFF;
+}
+
+/* Hide native dropdown arrows */
+.select-with-arrow select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: none !important;
+  padding-right: 32px !important;
+}
+
+/* === COMPACT BASIC SEARCH BAR === */
+
+/* Search group container - resized to match Advanced Search */
+.search-group {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  flex-wrap: nowrap;
+  flex: 1;
+  height: 44px;
+  border: 2px solid #e1e5e9;
+  border-radius: 14px;
+  overflow: hidden;
+  background: white;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.search-group:focus-within {
+  border-color: #007BFF;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+
+/* Fixed-width dropdown box - resized to match Advanced Search */
+.search-mode-box {
+  all: unset; /* Remove all inherited styles */
+  flex: 0 0 180px;
+  max-width: 220px;
+  min-width: 150px;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 0 14px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #333;
+  background-color: #f8f9fa;
+  border: 2px solid #e1e5e9;
+  border-right: 0;
+  border-top-left-radius: 14px;
+  border-bottom-left-radius: 14px;
+  cursor: pointer;
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: background-color 0.2s ease;
+}
+
+.search-mode-box:hover {
+  background-color: #e9ecef;
+}
+
+.search-mode-box:focus {
+  background-color: #ffffff;
+  outline: none;
+}
+
+/* Flexible text input - resized to match Advanced Search */
+.search-input-flex {
+  all: unset; /* Remove all inherited styles */
+  flex: 1 1 auto;
+  min-width: 240px;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 0 14px;
+  font-size: 15px;
+  color: #333;
+  background: transparent;
+  border: 2px solid #e1e5e9;
+  border-left: 0;
+  border-top-right-radius: 14px;
+  border-bottom-right-radius: 14px;
+  outline: none;
+}
+
+.search-input-flex::placeholder {
+  color: #6c757d;
+}
+
+.search-input-flex:focus {
+  outline: none;
+}
+
+/* Consistent styling for all select elements */
+.advanced-select,
+.freq-unit-select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: none !important;
+  padding-right: 32px !important;
+  cursor: pointer;
+  outline: none;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.advanced-select:hover,
+.freq-unit-select:hover {
+  background-color: #f0f2f5;
+}
+
+.advanced-select:focus,
+.freq-unit-select:focus {
+  background-color: #ffffff;
+  border-color: #007BFF;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+
+/* Responsive tweaks for narrow screens */
+@media (max-width: 480px) {
+  .search-mode-box {
+    flex: 0 0 150px; /* Min-width on narrow screens */
+    min-width: 150px;
+    max-width: 150px;
+  }
+
+  .search-input-flex {
+    min-width: 200px; /* Reduce min-width on narrow screens */
+  }
+
+  .select-with-arrow::after {
+    right: 8px;
+    font-size: 12px;
+  }
+
+  .select-with-arrow select {
+    padding-right: 28px !important;
+  }
+}
+
+
+/* Compact dropdown inside the left corner of the search input */
+.search-mode-tag-left {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 18px;
+  padding: 4px 10px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #333;
+  cursor: pointer;
+  outline: none;
+  height: 30px;
+  z-index: 2;
+  appearance: none;
+  transition: all 0.2s ease;
+}
+
+.search-mode-tag-left:hover,
+.search-mode-tag-left:focus {
+  background-color: #e9ecef;
+  border-color: #007bff;
+}
+
+/* Adjust the input to leave room for dropdown on left */
+.search-input-main-left {
+  width: 100%;
+  padding: 14px 20px 14px 100px; /* large left padding for dropdown */
+  border: 2px solid #e1e5e9;
+  border-radius: 30px;
+  font-size: 18px;
+  outline: none;
+  background: #fff;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  box-sizing: border-box;
+}
+
+.search-input-main-left:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.1);
+}
+
+/* === FIX: Properly align dropdown INSIDE left corner === */
+.search-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 600px;
+}
+
+/* Reset any old conflicting dropdown positioning */
+.search-mode-tag-left {
+  all: unset; /* remove old inherited props like width, border, etc. */
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 18px;
+  padding: 4px 10px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #333;
+  cursor: pointer;
+  outline: none;
+  height: 30px;
+  z-index: 2;
+  appearance: none;
+  box-sizing: border-box;
+  transition: all 0.2s ease;
+  min-width: auto;
+  width: auto;
+  max-width: 90px;
+}
+
+/* Hover / focus styles */
+.search-mode-tag-left:hover,
+.search-mode-tag-left:focus {
+  background-color: #e9ecef;
+  border-color: #007bff;
+}
+
+/* Adjust main input so text starts after dropdown */
+.search-input-main-left {
+  width: 100%;
+  padding: 14px 20px 14px 95px; /* padding-left = dropdown width + spacing */
+  border: 2px solid #e1e5e9;
+  border-radius: 30px;
+  font-size: 18px;
+  outline: none;
+  background: #fff;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  box-sizing: border-box;
+}
+
+.search-input-main-left:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.1);
+}
