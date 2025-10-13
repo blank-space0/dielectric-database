@@ -8,11 +8,21 @@ export default function MaterialSearchPage() {
   const [searchMode, setSearchMode] = useState("materialName");
   const [query, setQuery] = useState("");
 
+  // Advanced Search frequency state
+  const [freqMin, setFreqMin] = useState("");
+  const [freqMax, setFreqMax] = useState("");
+
   const toggleAdvanced = () => setIsAdvancedHidden((v) => !v);
 
   const handleBasicSearch = (e) => {
     e.preventDefault();
     console.log(`Searching for ${searchMode}: ${query}`);
+  };
+
+  // Numeric input validation for frequency fields
+  const handleFreqInputChange = (value, setter) => {
+    // For number inputs, allow the raw value (browser handles validation)
+    setter(value);
   };
 
   return (
@@ -61,13 +71,16 @@ export default function MaterialSearchPage() {
       <section className="advanced-search">
         <div className="advanced-header">
           <h2>Advanced Search</h2>
-          <div className="toggle-controls">
-            <button
-              className={`toggle-btn ${isAdvancedHidden ? "" : "rotate"}`}
-              onClick={toggleAdvanced}
-            >
+          <div
+            className="toggle-controls"
+            onClick={toggleAdvanced}
+            role="button"
+            tabIndex={0}
+            onKeyDown={(e) => e.key === 'Enter' && toggleAdvanced()}
+          >
+            <span className={`toggle-btn ${isAdvancedHidden ? "" : "rotate"}`}>
               ⌃
-            </button>
+            </span>
             <span className="toggle-label">Toggle</span>
           </div>
         </div>
@@ -88,8 +101,24 @@ export default function MaterialSearchPage() {
           <label className="frequency-range">
             Frequency range
             <div className="freq-inputs">
-              <input type="text" placeholder="Min" className="freq-input" />
-              <input type="text" placeholder="Max" className="freq-input" />
+              <input
+                type="number"
+                placeholder="Min"
+                className="freq-input"
+                value={freqMin}
+                onChange={(e) => handleFreqInputChange(e.target.value, setFreqMin)}
+                min="0"
+                step="any"
+              />
+              <input
+                type="number"
+                placeholder="Max"
+                className="freq-input"
+                value={freqMax}
+                onChange={(e) => handleFreqInputChange(e.target.value, setFreqMax)}
+                min="0"
+                step="any"
+              />
               <div className="select-with-arrow">
                 <select className="freq-unit-select">
                   <option>Hz</option>
@@ -101,17 +130,17 @@ export default function MaterialSearchPage() {
           </label>
 
           <label>
-            Temperature
-            <input type="text" placeholder="100°C" className="advanced-input" />
-          </label>
-
-          <label>
             Measurement Model
             <div className="select-with-arrow">
               <select className="advanced-select">
                 <option>Select</option>
               </select>
             </div>
+          </label>
+
+          <label>
+            Temperature
+            <input type="text" placeholder="100°C" className="advanced-input" />
           </label>
         </div>
 
