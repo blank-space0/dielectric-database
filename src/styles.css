@@ -263,7 +263,8 @@ thead {
 .toggle-controls {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
+  margin-left: 4px; /* closer to title */
 }
 
 .toggle-label {
@@ -450,7 +451,7 @@ label {
 .advanced-header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  gap: 8px;
   margin-top: 40px;
 }
 
@@ -593,14 +594,15 @@ label {
 
 /* === COMPACT BASIC SEARCH BAR === */
 
-/* Search group container - resized to match Advanced Search */
+/* Search group container - polished layout */
 .search-group {
   display: flex;
-  align-items: center;
+  align-items: stretch;
   gap: 0;
   flex-wrap: nowrap;
   flex: 1;
   height: 44px;
+  width: 100%;
   border: 2px solid #e1e5e9;
   border-radius: 14px;
   overflow: hidden;
@@ -613,21 +615,20 @@ label {
   box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
 }
 
-/* Fixed-width dropdown box - resized to match Advanced Search */
+/* Fixed-width dropdown box - narrower width and seamless borders */
 .search-mode-box {
   all: unset; /* Remove all inherited styles */
-  flex: 0 0 180px;
-  max-width: 220px;
-  min-width: 150px;
+  flex: 0 0 160px;
+  max-width: 200px;
+  min-width: 140px;
   height: 100%;
   box-sizing: border-box;
   padding: 0 14px;
   font-size: 15px;
   font-weight: 500;
   color: #333;
-  background-color: #f8f9fa;
-  border: 2px solid #e1e5e9;
-  border-right: 0;
+  background-color: #ffffff;
+  border: none;
   border-top-left-radius: 14px;
   border-bottom-left-radius: 14px;
   cursor: pointer;
@@ -641,7 +642,7 @@ label {
 }
 
 .search-mode-box:hover {
-  background-color: #e9ecef;
+  background-color: #f8f9fa;
 }
 
 .search-mode-box:focus {
@@ -649,7 +650,7 @@ label {
   outline: none;
 }
 
-/* Flexible text input - resized to match Advanced Search */
+/* Flexible text input - seamless borders with dropdown */
 .search-input-flex {
   all: unset; /* Remove all inherited styles */
   flex: 1 1 auto;
@@ -659,9 +660,8 @@ label {
   padding: 0 14px;
   font-size: 15px;
   color: #333;
-  background: transparent;
-  border: 2px solid #e1e5e9;
-  border-left: 0;
+  background: #ffffff;
+  border: none;
   border-top-right-radius: 14px;
   border-bottom-right-radius: 14px;
   outline: none;
