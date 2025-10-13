@@ -21,8 +21,15 @@ export default function MaterialSearchPage() {
 
   // Numeric input validation for frequency fields
   const handleFreqInputChange = (value, setter) => {
-    // For number inputs, allow the raw value (browser handles validation)
-    setter(value);
+    // For number inputs, browser handles basic validation
+    // Allow empty string for clearing input
+    if (value === '' || value === null || value === undefined) {
+      setter('');
+      return;
+    }
+
+    // Convert to string and set value
+    setter(String(value));
   };
 
   return (
@@ -119,13 +126,11 @@ export default function MaterialSearchPage() {
                 min="0"
                 step="any"
               />
-              <div className="select-with-arrow">
-                <select className="freq-unit-select">
-                  <option>Hz</option>
-                  <option>kHz</option>
-                  <option>MHz</option>
-                </select>
-              </div>
+              <select className="freq-unit-select">
+                <option>Hz</option>
+                <option>kHz</option>
+                <option>MHz</option>
+              </select>
             </div>
           </label>
 
