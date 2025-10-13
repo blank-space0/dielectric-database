@@ -126,11 +126,13 @@ export default function MaterialSearchPage() {
                 min="0"
                 step="any"
               />
-              <select className="freq-unit-select">
-                <option>Hz</option>
-                <option>kHz</option>
-                <option>MHz</option>
-              </select>
+              <div className="select-with-arrow">
+                <select className="freq-unit-select">
+                  <option>Hz</option>
+                  <option>kHz</option>
+                  <option>MHz</option>
+                </select>
+              </div>
             </div>
           </label>
 
