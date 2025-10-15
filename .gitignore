@@ -10,3 +10,56 @@ dist/
 
 # env vars (if any)
 .env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Claude Code configuration (may contain sensitive data)
+.claude/settings.local.json
+.mcp.json
+
+# Supabase CLI and credentials
+supabase/.temp/
+supabase/config.toml
+
+# IDE and editor files
+.vscode/settings.json
+.idea/
+*.swp
+*~
+*.swo
+.vscode/
+.vscode-server/
+
+# Coverage and testing
+coverage/
+.nyc_output/
+*.lcov
+
+# Cache directories
+.cache/
+.parcel-cache/
+.eslintcache
+
+# Build artifacts
+build/
+*.tgz
+*.tar.gz
+
+# Runtime files
+*.pid
+*.seed
+*.pid.lock
+
+# Temporary files
+*.tmp
+*.temp
+.npm
+.eslintcache
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*

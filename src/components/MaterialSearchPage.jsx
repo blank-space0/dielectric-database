@@ -41,7 +41,7 @@ export default function MaterialSearchPage() {
         <form className="unified-search" onSubmit={handleBasicSearch}>
           <div className="search-group">
             {/* Fixed-width dropdown on the left with rotating arrow */}
-            <div className="select-with-arrow">
+            <div className="select-with-arrow check">
               <select
                 value={searchMode}
                 onChange={(e) => setSearchMode(e.target.value)}
@@ -126,7 +126,7 @@ export default function MaterialSearchPage() {
                 min="0"
                 step="any"
               />
-              <div className="select-with-arrow">
+              <div className="select-with-arrow special">
                 <select className="freq-unit-select">
                   <option>Hz</option>
                   <option>kHz</option>

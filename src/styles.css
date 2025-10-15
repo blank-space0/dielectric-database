@@ -141,10 +141,6 @@ body {
   transition: background-color 0.2s ease;
 }
 
-.search-mode-box:hover {
-  background-color: #f8f9fa;
-}
-
 .search-mode-box:focus {
   background-color: #fff;
   outline: none;
@@ -405,7 +401,31 @@ body {
   width: 100%;
 }
 
+.select-with-arrow.special {
+  position: relative;
+  display: inline-block;
+  width: 6.4rem;
+}
+
+.select-with-arrow.check {
+  width: 11rem;
+  border-right: 2px solid #e1e5e9;
+}
+
 .select-with-arrow::after {
+  content: '⌃';
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%) rotate(0deg);
+  pointer-events: none;
+  transition: transform 0.25s ease, color 0.25s ease;
+  font-size: 14px;
+  color: #666;
+  z-index: 1;
+}
+
+.select-with-arrow.special::after {
   content: '⌃';
   position: absolute;
   right: 12px;
